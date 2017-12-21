@@ -1,31 +1,169 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = null;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Medilab Plus</title>
+    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+    <link rel="stylesheet" type="text/css" href="~/Content/HomeIndex/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/HomeIndex/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/font-awesome.min.css">
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <!--banner-->'
+    <section id="banner" class="banner">
+        <div class="bg-color">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="~/Home/Index"><img src="~/Img/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#banner">Home</a></li>
+                                <li class=""><a href="#contact">Contato</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="banner-info">
+                        <div class="banner-logo text-center">
+                            <img src="~/Img/logo.png" class="img-responsive">
+                        </div>
+                        <div class="banner-text text-center">
+                            <h1 class="white">App em desenvolvimento!!</h1>
+                            <p>By Marcelo Biberg</p>
+                            @*BOTAO TOP, REDIRECIONA PARA TELA DE LOGIN*@
+                            <button class="btn btn-appoint" type="button" onclick="location.href='@Url.Action("Index","LogUser")'">ENTRAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ banner-->
+
+    <!--contact-->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="ser-title">Contato</h2>
+                    <hr class="botm-line">
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="space"></div>
+        
+                    <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>biberg.marcelo@gmail.com</p>
+                    <div class="space"></div>
+                </div>
+                <div class="col-md-8 col-sm-8 marb20">
+                    <div class="contact-info">
+                        <h3 class="cnt-ttl">Envie seu Feedback, ou entre em contato pelo GitHub</h3>
+                        <div class="space"></div>
+                        <div id="sendmessage">Your message has been sent. Thank you!</div>
+                        <div id="errormessage"></div>
+                        <form action="" method="post" role="form" class="contactForm">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Seu nome" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Seu e-mail" data-rule="email" data-msg="Please enter a valid email" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control br-radius-zero" name="subject" id="Subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control br-radius-zero" name="Message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensagem"></textarea>
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-action">
+                                <button type="submit" class="btn btn-form">Enviar Mensagem</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ contact-->
+
+    <!--footer begin-->
+    <footer id="footer">
+        <div class="top-footer">
+            <div class="container">
+                <div class="row">
+                    @*logica para link rede sociais*@
+                    <div class="col-md-4 col-sm-4 marb20">
+                        @*<div class="ftr-tle">
+                                <h4 class="white no-padding">Sobre nós</h4>
+                            </div>*@
+                        <div class="info-sec">
+                            <p class="text-justify">Marcelo Biberg<br /><br />Estudante de Sistemas de informação, em busca de conhecimento . . .  atualmente aprendendo ASP.NET, JavaScript, <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr> e BootStrap.<br />Banco de Dados: SQL Server/MySql </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 marb20">
+                        @*<div class="ftr-tle">
+                                <h4 class="white no-padding">&emsp;&emsp;Contribua no GitHub</h4>
+                            </div>*@
+                        <div class="info-sec">
+
+                            <ul class="social-icon">
+                                <li class="bgred"><a href="https://www.facebook.com/marcelo.biberg" target="_blank" class="fa fa-facebook"></a></li>
+                                <li class="bgdark-blue"><a href="https://www.linkedin.com/in/marcelo-biberg-a8368b104/" target="_blank" class="fa fa-linkedin"></a></li>
+                                <li class="bglight-blue"><a href="https://github.com/marcelobiberg" target="_blank" class="fa fa-github"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-line">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        &copy; Project Heart - Projeto para gestão de clínicas de cardiologia, versão <strong>Beta</strong>
+                        <div class="credits">
+                            Designed by <b>Marelo Biberg</b><br />
+                            @DateTime.Now.ToString("dd/M/yyyy")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/ footer end-->
+
+    <!--Scripts-->
+    <script src="~/Scripts/HomeIndex/jquery.min.js"></script>
+    <script src="~/Scripts/HomeIndex/jquery.easing.min.js"></script>
+    <script src="~/Scripts/HomeIndex/bootstrap.min.js"></script>
+    <script src="~/Scripts/HomeIndex/custom.js"></script>
+
+</body>
+</html>
+

@@ -24,8 +24,9 @@ namespace ProjectHeart
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css", //logic para bundle font awesome
+                      "~/Content/site.css").Include("~/Content/font-awesome.css", new CssRewriteUrlTransform()));
+
         }
     }
 }

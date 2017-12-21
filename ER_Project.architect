@@ -4,8 +4,8 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
+   <property key="Logical" value="DB_ProjectHeart_ER" />
    <property key="Connection Type" value="SQL Server 2008" />
-   <property key="Logical" value="PlayPen Database" />
    <property key="JDBC URL" value="jdbc:sqlserver://den1.mssql1.gear.host:1433;DatabaseName=dbprojectheart" />
    <property key="UID" value="dbprojectheart" />
    <property key="PWD" value="Qg4r~QXm79b~" />
@@ -15,7 +15,7 @@
    <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
    <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
   </data-source>
-  <data-source id="DS0">
+  <data-source id="DS2">
    <property key="Connection Type" value="SQL Server 2008" />
    <property key="Logical" value="PlayPen Database" />
    <property key="JDBC URL" value="jdbc:sqlserver://den1.mssql1.gear.host:1433;DatabaseName=dbprojectheart" />
@@ -29,7 +29,7 @@
   </data-source>
  </project-data-sources>
  <source-databases>
-  <database id="DB0" populated="true" UUID="b99285a6-7340-4ab5-8ef2-dededd3fee4e" dbcs-ref="DS0" name="PlayPen Database" physicalName="DB_ProjectHeart_ER" >
+  <database id="DB0" populated="true" UUID="b99285a6-7340-4ab5-8ef2-dededd3fee4e" dbcs-ref="DS2" name="PlayPen Database" physicalName="DB_ProjectHeart_ER" >
    <catalog id="CAT1" populated="true" UUID="5a41995f-32c0-43ea-81f5-ee6d231416d4" name="dbprojectheart" nativeTerm="database" physicalName="dbprojectheart" >
     <schema id="SCH2" populated="true" UUID="0346da81-cee4-49ce-94c4-cecabbdc3329" name="db_accessadmin" nativeTerm="schema" physicalName="db_accessadmin" >
     </schema>
@@ -113,37 +113,37 @@
   </database>
  </source-databases>
  <target-database id="ppdb" dbcs-ref="DS0">
-  <table id="TAB41" populated="true" UUID="5d4530c7-0716-4c19-9ead-9945d3090fbc" name="PACIENTE" objectType="TABLE" physicalName="PACIENTE" >
+  <table id="TAB41" populated="true" UUID="5d4530c7-0716-4c19-9ead-9945d3090fbc" name="Paciente" objectType="TABLE" physicalName="Paciente" >
    <remarks></remarks>
    <folder id="FOLTAB411" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL42" populated="true" UUID="2c1cbae2-7c9c-437f-b153-8ec747753f14" autoIncrement="true" autoIncrementSequenceName="PACIENTE_ID_PACIENTE_seq" defaultValue="" name="ID_PACIENTE" nullable="0" physicalName="ID_PACIENTE" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL42" populated="true" UUID="2c1cbae2-7c9c-437f-b153-8ec747753f14" autoIncrement="true" autoIncrementSequenceName="Paciente_ID_PACIENTE_seq" defaultValue="" name="ID_PACIENTE" nullable="0" physicalName="ID_PACIENTE" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL43" populated="true" UUID="d900812e-587c-4462-9f3a-0a67dd0355b9" autoIncrement="false" autoIncrementSequenceName="CONVENIO_ID_CONVENIO_seq" defaultValue="" name="ID_CONVENIO" nullable="0" physicalName="ID_CONVENIO" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL43" populated="true" UUID="d900812e-587c-4462-9f3a-0a67dd0355b9" autoIncrement="false" autoIncrementSequenceName="Paciente_ID_CONVENIO_seq" defaultValue="" name="ID_CONVENIO" nullable="0" physicalName="ID_CONVENIO" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL44" populated="true" UUID="084f6685-beaf-4645-bb05-1ff55d67859a" autoIncrement="false" autoIncrementSequenceName="PACIENTE_NOME_PACIENTE_seq" defaultValue="" name="NOME_PACIENTE" nullable="1" physicalName="NOME_PACIENTE" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL44" populated="true" UUID="084f6685-beaf-4645-bb05-1ff55d67859a" autoIncrement="false" autoIncrementSequenceName="Paciente_NOME_PACIENTE_seq" defaultValue="" name="NOME_PACIENTE" nullable="1" physicalName="NOME_PACIENTE" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL45" populated="true" UUID="61ead463-7ae5-4bae-9d8f-a831daba9b10" autoIncrement="false" autoIncrementSequenceName="PACIENTE_RG_seq" defaultValue="" name="RG" nullable="1" physicalName="RG" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL45" populated="true" UUID="61ead463-7ae5-4bae-9d8f-a831daba9b10" autoIncrement="false" autoIncrementSequenceName="Paciente_RG_seq" defaultValue="" name="RG" nullable="1" physicalName="RG" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL46" populated="true" UUID="0653f926-8bfd-4b6c-9dd7-6d01a1cf241f" autoIncrement="false" autoIncrementSequenceName="PACIENTE_RESPONSAVEL_seq" defaultValue="" name="RESPONSAVEL" nullable="1" physicalName="RESPONSAVEL" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL46" populated="true" UUID="0653f926-8bfd-4b6c-9dd7-6d01a1cf241f" autoIncrement="false" autoIncrementSequenceName="Paciente_RESPONSAVEL_seq" defaultValue="" name="RESPONSAVEL" nullable="1" physicalName="RESPONSAVEL" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL47" populated="true" UUID="e83bfb5b-4f33-40f1-af03-e573c04cbd6e" autoIncrement="false" autoIncrementSequenceName="PACIENTE_ESTADO_seq" defaultValue="" name="ESTADO" nullable="1" physicalName="ESTADO" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL47" populated="true" UUID="e83bfb5b-4f33-40f1-af03-e573c04cbd6e" autoIncrement="false" autoIncrementSequenceName="Paciente_ESTADO_seq" defaultValue="" name="ESTADO" nullable="1" physicalName="ESTADO" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL48" populated="true" UUID="2ad39ea3-6ff9-446b-b34b-0191b5686a0f" autoIncrement="false" autoIncrementSequenceName="PACIENTE_ENDERECO_seq" defaultValue="" name="ENDERECO" nullable="1" physicalName="ENDERECO" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL48" populated="true" UUID="2ad39ea3-6ff9-446b-b34b-0191b5686a0f" autoIncrement="false" autoIncrementSequenceName="Paciente_ENDERECO_seq" defaultValue="" name="ENDERECO" nullable="1" physicalName="ENDERECO" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL49" populated="true" UUID="2afc3222-682f-47e7-92b1-80a6910a3e8b" autoIncrement="false" autoIncrementSequenceName="PACIENTE_NR_CARTEIRA_seq" defaultValue="" name="NR_CARTEIRA" nullable="1" physicalName="NR_CARTEIRA" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL49" populated="true" UUID="2afc3222-682f-47e7-92b1-80a6910a3e8b" autoIncrement="false" autoIncrementSequenceName="Paciente_NR_CARTEIRA_seq" defaultValue="" name="NR_CARTEIRA" nullable="1" physicalName="NR_CARTEIRA" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL50" populated="true" UUID="278a791a-1dd5-4db4-91f9-6a745b748f3a" autoIncrement="false" autoIncrementSequenceName="PACIENTE_CIDADE_seq" defaultValue="" name="CIDADE" nullable="1" physicalName="CIDADE" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL50" populated="true" UUID="278a791a-1dd5-4db4-91f9-6a745b748f3a" autoIncrement="false" autoIncrementSequenceName="Paciente_CIDADE_seq" defaultValue="" name="CIDADE" nullable="1" physicalName="CIDADE" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL51" populated="true" UUID="1f9f9f7c-f659-4e1f-a3c1-272d39916632" autoIncrement="false" autoIncrementSequenceName="PACIENTE_CPF_seq" defaultValue="" name="CPF" nullable="1" physicalName="CPF" precision="11" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL51" populated="true" UUID="1f9f9f7c-f659-4e1f-a3c1-272d39916632" autoIncrement="false" autoIncrementSequenceName="Paciente_CPF_seq" defaultValue="" name="CPF" nullable="1" physicalName="CPF" precision="11" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -158,19 +158,19 @@
     </index>
    </folder>
   </table>
-  <table id="TAB55" populated="true" UUID="e09276b3-16f9-4282-81ea-881923f8a279" name="CONVENIO" objectType="TABLE" physicalName="CONVENIO" >
+  <table id="TAB55" populated="true" UUID="e09276b3-16f9-4282-81ea-881923f8a279" name="Convenio" objectType="TABLE" physicalName="Convenio" >
    <remarks></remarks>
    <folder id="FOLTAB551" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL56" populated="true" UUID="1c6ff0bf-de71-4560-984d-ee7cc01004cb" autoIncrement="true" autoIncrementSequenceName="CONVENIO_ID_CONVENIO_seq_1" defaultValue="" name="ID_CONVENIO" nullable="0" physicalName="ID_CONVENIO" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL56" populated="true" UUID="1c6ff0bf-de71-4560-984d-ee7cc01004cb" autoIncrement="true" autoIncrementSequenceName="Convenio_ID_CONVENIO_seq" defaultValue="" name="ID_CONVENIO" nullable="0" physicalName="ID_CONVENIO" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL57" populated="true" UUID="992c1e28-3ecb-4f76-a82c-d2959e56e12a" autoIncrement="false" autoIncrementSequenceName="CONVENIO_NR_CONVENIO_seq" defaultValue="" name="NR_CONVENIO" nullable="1" physicalName="NR_CONVENIO" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL57" populated="true" UUID="992c1e28-3ecb-4f76-a82c-d2959e56e12a" autoIncrement="false" autoIncrementSequenceName="Convenio_NR_CONVENIO_seq" defaultValue="" name="NR_CONVENIO" nullable="1" physicalName="NR_CONVENIO" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL58" populated="true" UUID="60d69068-924a-40ef-8ecb-67c41872a0f3" autoIncrement="false" autoIncrementSequenceName="CONVENIO_NOME_CONVENIO_seq" defaultValue="" name="NOME_CONVENIO" nullable="1" physicalName="NOME_CONVENIO" precision="5" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL58" populated="true" UUID="60d69068-924a-40ef-8ecb-67c41872a0f3" autoIncrement="false" autoIncrementSequenceName="Convenio_NOME_CONVENIO_seq" defaultValue="" name="NOME_CONVENIO" nullable="1" physicalName="NOME_CONVENIO" precision="5" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL59" populated="true" UUID="1ebb0896-4717-4536-8cf1-e53e2a491092" autoIncrement="false" autoIncrementSequenceName="CONVENIO_VALIDADE_seq" defaultValue="" name="VALIDADE" nullable="1" physicalName="VALIDADE" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL59" populated="true" UUID="1ebb0896-4717-4536-8cf1-e53e2a491092" autoIncrement="false" autoIncrementSequenceName="Convenio_VALIDADE_seq" defaultValue="" name="VALIDADE" nullable="1" physicalName="VALIDADE" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
     </folder>
@@ -184,19 +184,22 @@
     </index>
    </folder>
   </table>
-  <table id="TAB62" populated="true" UUID="c8cb4c81-fbc5-4c40-930b-5ca91a7459eb" name="PRONTUARIO" objectType="TABLE" physicalName="PRONTUARIO" >
+  <table id="TAB62" populated="true" UUID="c8cb4c81-fbc5-4c40-930b-5ca91a7459eb" name="LogUser" objectType="TABLE" physicalName="LogUser" >
    <remarks></remarks>
    <folder id="FOLTAB621" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL63" populated="true" UUID="ed7d641c-7332-4d72-a3da-521b2d872084" autoIncrement="true" autoIncrementSequenceName="PRONTUARIO_ID_PRON_seq" defaultValue="" name="ID_PRON" nullable="0" physicalName="ID_PRON" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL63" populated="true" UUID="ed7d641c-7332-4d72-a3da-521b2d872084" autoIncrement="true" autoIncrementSequenceName="LogUser_ID_USER_seq" defaultValue="" name="ID_USER" nullable="0" physicalName="ID_USER" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL64" populated="true" UUID="d475483e-8d53-4037-a6ee-c2001027eebd" autoIncrement="false" autoIncrementSequenceName="PRONTUARIO_POSOLOGIA_seq" defaultValue="" name="POSOLOGIA" nullable="1" physicalName="POSOLOGIA" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL64" populated="true" UUID="d475483e-8d53-4037-a6ee-c2001027eebd" autoIncrement="false" autoIncrementSequenceName="LogUser_NOME_seq" defaultValue="" name="NOME" nullable="1" physicalName="NOME" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL65" populated="true" UUID="c5193f47-e4ac-4d7a-9125-73e70f0a91c8" autoIncrement="false" autoIncrementSequenceName="PRONTUARIO_DT_FIMMED_seq" defaultValue="" name="DT_FIMMED" nullable="1" physicalName="DT_FIMMED" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL65" populated="true" UUID="c5193f47-e4ac-4d7a-9125-73e70f0a91c8" autoIncrement="false" autoIncrementSequenceName="LogUser_EMAIL_seq" defaultValue="" name="EMAIL" nullable="0" physicalName="EMAIL" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL66" populated="true" UUID="0ed6c7b0-0633-420b-9ba4-17b1fc012874" autoIncrement="false" autoIncrementSequenceName="PRONTUARIO_DT_INICIOMED_seq" defaultValue="" name="DT_INICIOMED" nullable="1" physicalName="DT_INICIOMED" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL66" populated="true" UUID="0ed6c7b0-0633-420b-9ba4-17b1fc012874" autoIncrement="false" autoIncrementSequenceName="LogUser_SENHA_seq" defaultValue="" name="SENHA" nullable="0" physicalName="SENHA" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL67" populated="true" UUID="a41329ce-9c77-4f8d-9628-933869c049f0" autoIncrement="false" autoIncrementSequenceName="LogUser_TIPO_seq" defaultValue="" name="TIPO" nullable="0" physicalName="TIPO" precision="5" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -205,25 +208,25 @@
     <folder id="FOLTAB622" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB624" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX67" populated="true" UUID="6a306206-38ca-4a6a-942f-34965abcc475" clustered="false" name="ID_PRON" physicalName="ID_PRON" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC68" populated="true" UUID="95e92d08-f2aa-4c4c-8bef-5974dfb7d758" ascendingOrDescending="UNSPECIFIED" column-ref="COL63" name="ID_PRON" physicalName="ID_PRON" />
+    <index id="IDX68" populated="true" UUID="6a306206-38ca-4a6a-942f-34965abcc475" clustered="false" name="ID_PRON" physicalName="ID_PRON" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC69" populated="true" UUID="95e92d08-f2aa-4c4c-8bef-5974dfb7d758" ascendingOrDescending="UNSPECIFIED" column-ref="COL63" name="ID_USER" physicalName="ID_USER" />
     </index>
    </folder>
   </table>
   <relationships>
-   <relationship id="REL69" populated="true" UUID="c20b3cbd-20e2-4919-82c3-2d53a68a171d" deferrability="7" deleteRule="3" fk-table-ref="TAB41" fkCardinality="7" identifying="true" name="CONVENIO_PACIENTE_fk" physicalName="CONVENIO_PACIENTE_fk" pk-table-ref="TAB55" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP70" populated="true" UUID="2697c859-306b-47fd-b535-f07ce76fefd5" fk-column-ref="COL43" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL56" />
+   <relationship id="REL70" populated="true" UUID="c20b3cbd-20e2-4919-82c3-2d53a68a171d" deferrability="7" deleteRule="3" fk-table-ref="TAB41" fkCardinality="7" identifying="true" name="CONVENIO_PACIENTE_fk" physicalName="CONVENIO_PACIENTE_fk" pk-table-ref="TAB55" pkCardinality="7" updateRule="3" >
+    <column-mapping id="CMP71" populated="true" UUID="036ddf88-6b5b-49ce-8342-fed008836450" fk-column-ref="COL43" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL56" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.SQLServer2005DDLGenerator" allow-connection="true" target-catalog="dbprojectheart"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.SQLServer2005DDLGenerator" allow-connection="false" target-catalog="dbprojectheart"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.0" viewportX="68" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB41" x="96" y="142" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB55" x="512" y="240" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB62" x="886" y="202" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL69" pkConnection="0.6349206349206349" fkConnection="0.450261780104712" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-pane table-ref="TAB62" x="518" y="46" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL70" pkConnection="0.6349206349206349" fkConnection="0.450261780104712" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">

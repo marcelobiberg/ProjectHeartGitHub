@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Metilab Plus</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/HomeIndex/css")
+    @Styles.Render("~/font-awesome/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -25,7 +27,6 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
