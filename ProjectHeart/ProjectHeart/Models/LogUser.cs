@@ -16,11 +16,9 @@ namespace ProjectHeart.Models
         public string NOME { get; set; }
 
         [Required]
-        [StringLength(1)]
         public string EMAIL { get; set; }
 
         [Required]
-        [StringLength(1)]
         public string SENHA { get; set; }
 
         [Required]

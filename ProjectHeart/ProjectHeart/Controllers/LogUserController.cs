@@ -17,7 +17,13 @@ namespace ProjectHeart.Controllers
         // GET: LogUser
         public ActionResult Index()
         {
-            return View(db.LogUsers.ToList());
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index([Bind(Include = "ID_USER,NOME,EMAIL,SENHA")] LogUser logUser)
+        {
+            return View();
         }
 
         // GET: LogUser/Details/5
