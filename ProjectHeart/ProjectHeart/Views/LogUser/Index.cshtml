@@ -18,29 +18,34 @@
 </head>
 <body>
     <hgroup>
-        <h1>Login</h1>
-        <h3>By Marcelo Biberg</h3>
+        <h1>Log In</h1>
+        <h3>Project Heart</h3>
     </hgroup>
     @using (Html.BeginForm("Index", "LogUser", FormMethod.Post))
     {
     @Html.AntiForgeryToken()
 
         <div class="group">
-            @*@Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })<span class="highlight"></span><span class="bar"></span>
-            @Html.LabelFor(model => model.EMAIL)
-            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })*@
 
             @Html.EditorFor(model => Model.EMAIL, new { htmlAttributes = new { @type= "email" } }) <span class="highlight"></span><span class="bar"></span>
+            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
             <label>E-mail</label>
         </div>
         <div class="group">
             @Html.EditorFor(model => Model.SENHA, new { htmlAttributes = new { @type = "password" } }) <span class="highlight"></span><span class="bar"></span>
+            @Html.ValidationMessageFor(model => model.SENHA, "", new { @class = "text-danger" })
             <label>Senha</label>
         </div>
-        <button type="button" class="button buttonBlue">
+        <label class="group">
+            <a style="color:red">@ViewData["UserNotFOund"]</a>
+        </label>
+        <div class="space"></div>
+        <br />
+        <button type="submit" class="button buttonBlue">
             Entrar
             <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
         </button>
+
     }
     @*<footer>
         <a href="http://www.polymer-project.org/" target="_blank"><img src="https://www.polymer-project.org/images/logos/p-logo.svg"></a>

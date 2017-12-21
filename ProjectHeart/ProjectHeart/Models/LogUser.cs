@@ -22,7 +22,7 @@ namespace ProjectHeart.Models
         public string SENHA { get; set; }
 
         [Required]
-        [StringLength(1)]
+        [Column(TypeName = "char")]
         public string TIPO { get; set; }
     }
 }

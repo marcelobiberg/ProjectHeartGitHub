@@ -45,7 +45,7 @@ namespace ProjectHeart.Models
 
             modelBuilder.Entity<LogUser>()
                 .Property(e => e.TIPO)
-                .IsUnicode(false);
+                .HasColumnType("char");
 
             modelBuilder.Entity<Paciente>()
                 .Property(e => e.NOME_PACIENTE)
