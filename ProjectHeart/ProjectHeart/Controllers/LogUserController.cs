@@ -24,30 +24,39 @@ namespace ProjectHeart.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "ID_USER,NOME,EMAIL,SENHA,TIPO")] LogUser logUser)
         {
-            var user = db.LogUsers.FirstOrDefault(x => x.EMAIL == logUser.EMAIL && x.SENHA == logUser.SENHA);
- 
-            
-            if (user != null)
+            //tratar projeto login no futuro, estudar  . . 
+            if (ModelState.IsValid)
             {
-                //validando no controller para teste, vou validar na view futuramente
-                if (user.TIPO == "A")
+                var user = db.LogUsers.FirstOrDefault(x => x.EMAIL == logUser.EMAIL && x.SENHA == logUser.SENHA);
+
+                if (user != null)
                 {
-                    Session["Nome"] = user.NOME;
-                    Session["Tipo"] = user.TIPO;
-                    return RedirectToAction("../Home/Index");
+                    //validando no controller para teste, vou validar na view futuramente
+                   
+                        //Session["Nome"] = user.NOME;
+                        //Session["Tipo"] = user.TIPO;
+                        return RedirectToAction("../Home/DashBoardHome");
+                }
+                else
+                {
+                    ModelState.Clear();
+                    ViewData["UserNotFOund"] = "Usuário não encontrado!";
+                    return View();
                 }
             }
-            else
-            {
-                ModelState.Clear();
-                ViewData["UserNotFOund"] = "Usuário não encontrado!";
-                return View();
-            }
+            
             
             return View();
 
         }
 
+        //get view teste :)
+        public ActionResult View01()
+        {
+            return View();
+        }
+
+        
         // GET: LogUser/Details/5
         public ActionResult Details(int? id)
         {

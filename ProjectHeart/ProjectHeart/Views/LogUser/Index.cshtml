@@ -1,11 +1,11 @@
-﻿@model ProjectHeart.Models.LogUser
+﻿
 
 @{
 
     Layout = null;
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -50,10 +50,133 @@
     @*<footer>
         <a href="http://www.polymer-project.org/" target="_blank"><img src="https://www.polymer-project.org/images/logos/p-logo.svg"></a>
     </footer>*@
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    @*<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="~/Scripts/LogUserIndex/indexLogin.js"></script>
 
 
 </body>
+</html>*@
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Sign In | Bootstrap Based Admin Template - Material Design</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    @Styles.Render("~/plugins/bootstrap/css/")
+    @*<link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">*@
+
+    <!-- Waves Effect Css -->   
+    @Styles.Render("~/Plugins/node-waves/css")
+    @*<link href="../../plugins/node-waves/waves.css" rel="stylesheet" />*@
+
+    <!-- Animation Css -->
+    @Styles.Render("~/Plugins/animate-css")
+    @*<link href="../../plugins/animate-css/animate.css" rel="stylesheet" />*@
+
+    <!-- Custom Css -->
+    @Styles.Render("~/Content/MainPage/css")
+    @*<link href="../../css/style.css" rel="stylesheet">*@
+</head>
+
+<body class="login-page">
+    <div class="login-box">
+        <div class="logo">
+            <a href="javascript:void(0);">Medilab<b>+</b></a>
+            <small>BootStrap Based - Material Design</small>
+        </div>
+        <div class="card">
+            <!--body login-->
+            <div class="body">
+
+            @using (Html.BeginForm("Index", "LogUser", FormMethod.Post, new { htmlAttributes = new { id = "sign_in" } }))
+            {
+                @Html.AntiForgeryToken()
+                @model ProjectHeart.Models.LogUser
+                    <div class="msg">Para entrar no sistema, favor informar e-mail e senha!</div>
+                    <!--email-->
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-line">
+                            @Html.EditorFor(model => Model.EMAIL, new { htmlAttributes = new { @type = "email", @class = "form-control", @name = "username", placeholder = "E-mail" , @autofocus=true } })
+                            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!--senha-->
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            @Html.EditorFor(model => Model.SENHA, new { htmlAttributes = new { @type = "password", @class = "form-control", @name = "password", placeholder = "Senha" } })
+                            @Html.ValidationMessageFor(model => model.SENHA, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        @*<div class="col-xs-8 p-t-5">
+                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                            <label for="rememberme">Remember Me</label>
+                        </div>*@
+                        <div class="col-xs-12">
+                            <button class="btn btn-block bg-pink waves-effect" type="submit">Entrar</button>
+                        </div>
+                    </div>
+                    <div class="row m-t-15 m-b--20">
+                        @*<div class="col-xs-6">
+                            <a href="sign-up.html">Register Now!</a>
+                        </div>*@
+                        <div class="col-xs-6 align-center">
+                            <a href="forgot-password.html">Esqueceu a senha?</a>
+                        </div>
+                    </div>
+                    }
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery Core Js -->
+    @Scripts.Render("~/plugins/jquery")
+    @*<script src="~/AssetMainPage/Admin/plugins/jquery/jquery.min.js"></script>*@
+    @*<script src="../../plugins/jquery/jquery.min.js"></script>*@
+
+    <!-- Bootstrap Core Js -->
+    @Scripts.Render("~/Plugins/bootstrap")
+    @*<script src="~/AssetMainPage/Admin/plugins/bootstrap/js/bootstrap.js"></script>*@
+    @*<script src="../../plugins/bootstrap/js/bootstrap.js"></script>*@
+
+    <!-- Waves Effect Plugin Js -->
+    @Scripts.Render("~/Plugins/node-waves")
+    @*<script src="~/AssetMainPage/Admin/plugins/node-waves/waves.js"></script>*@
+    @*<script src="../../plugins/node-waves/waves.js"></script>*@
+
+    <!-- Validation Plugin Js -->
+    @Scripts.Render("~/bundles/jquery-validation")
+    @*<script src="~/AssetMainPage/Admin/plugins/jquery-validation/jquery.validate.js"></script>*@
+    @*<script src="../../plugins/jquery-validation/jquery.validate.js"></script>*@
+
+    <!-- Custom Js -->
+    @Scripts.Render("~/bundles/MainPage")
+    @*<script src="../../js/admin.js"></script>*@
+    @*<script src="~/AssetMainPage/Admin/js/admin.js"></script>*@
+    @Scripts.Render("~/bundles/MainPage/sign-in")
+    @*<script src="~/AssetMainPage/Admin/js/pages/examples/sign-in.js"></script>*@
+
+</body>
+
 </html>

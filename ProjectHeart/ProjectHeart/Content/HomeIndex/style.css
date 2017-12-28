@@ -6,11 +6,10 @@
 */
 
 body {
-	font-family: 'Open Sans', sans-serif;
-	line-height: 20px;
-	color: #999999;
-	font-size: 300;
-	font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 20px;
+    color: #999999;
+    font-size: 16px;
 }
 ol, ul {
 	list-style: none;
@@ -141,7 +140,7 @@ banner
     position: relative;
 }
 .bg-color {
-    background-color: RGBA(13, 70, 83, 0.80);
+    background-color: RGBA(14, 70, 83, 0.80);
     min-height: 810px;
 }
 .banner-info{

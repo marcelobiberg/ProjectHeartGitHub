@@ -1,0 +1,91 @@
+﻿@model ProjectHeart.Models.Paciente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Paciente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Convenio.NR_CONVENIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Convenio.NR_CONVENIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOME_PACIENTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOME_PACIENTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESPONSAVEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RESPONSAVEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENDERECO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENDERECO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NR_CARTEIRA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NR_CARTEIRA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CIDADE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CIDADE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

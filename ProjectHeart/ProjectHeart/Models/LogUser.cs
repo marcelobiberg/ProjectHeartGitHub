@@ -7,7 +7,7 @@ namespace ProjectHeart.Models
     using System.Data.Entity.Spatial;
 
     [Table("LogUser")]
-    public partial class LogUser
+    public class LogUser
     {
         [Key]
         public int ID_USER { get; set; }
@@ -15,14 +15,20 @@ namespace ProjectHeart.Models
         [StringLength(50)]
         public string NOME { get; set; }
 
-        [Required]
-        public string EMAIL { get; set; }
-
-        [Required]
-        public string SENHA { get; set; }
-
-        [Required]
+        //estudar logic para melhorar login
+        //[Required]
         [Column(TypeName = "char")]
         public string TIPO { get; set; }
+
+        [Required(ErrorMessage = "Por favor, informe o E-mail!")]
+        [Display(Name = "E-mail")]
+        [EmailAddress]
+        public string EMAIL { get; set; }
+
+        [Required(ErrorMessage = "Por favor, informe a Senha!")]
+        [Display(Name = "Senha")]
+        public string SENHA { get; set; }
     }
+
 }
+
