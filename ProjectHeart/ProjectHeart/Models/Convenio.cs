@@ -7,26 +7,21 @@ namespace ProjectHeart.Models
     using System.Data.Entity.Spatial;
 
     [Table("Convenio")]
-    public partial class Convenio
+    public class Convenio 
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Convenio()
-        {
-            Pacientes = new HashSet<Paciente>();
-        }
-
         [Key]
         public int ID_CONVENIO { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Identificação convênio")]
         public string NR_CONVENIO { get; set; }
 
-        [StringLength(5)]
+        [StringLength(100)]
+        [Display(Name = "Convênio")]
         public string NOME_CONVENIO { get; set; }
 
+        [Display(Name = "Validade")]
         public DateTime? VALIDADE { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Paciente> Pacientes { get; set; }
     }
 }

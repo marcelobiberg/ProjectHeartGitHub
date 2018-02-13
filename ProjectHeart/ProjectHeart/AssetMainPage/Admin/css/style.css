@@ -2402,7 +2402,7 @@ a {
   animation: none !important; }
 
 section.content {
-  margin: 100px 15px 0 315px;
+  margin: 50px 15px 0 315px;
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
   -webkit-transition: 0.5s;
@@ -4078,7 +4078,7 @@ section.content {
 
 /* Tooltip & Popovers ========================== */
 .tooltip {
-  font-size: 13px; }
+  font-size: 20px; }
   .tooltip .tooltip-inner {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;

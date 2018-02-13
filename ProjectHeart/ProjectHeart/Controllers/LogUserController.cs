@@ -22,7 +22,7 @@ namespace ProjectHeart.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index([Bind(Include = "ID_USER,NOME,EMAIL,SENHA,TIPO")] LogUser logUser)
+        public ActionResult Index([Bind(Include = "ID_USER,NOME,EMAIL,SENHA,TIPO")] Account logUser)
         {
             //tratar projeto login no futuro, estudar  . . 
             if (ModelState.IsValid)
@@ -32,15 +32,17 @@ namespace ProjectHeart.Controllers
                 if (user != null)
                 {
                     //validando no controller para teste, vou validar na view futuramente
-                   
-                        //Session["Nome"] = user.NOME;
-                        //Session["Tipo"] = user.TIPO;
-                        return RedirectToAction("../Home/DashBoardHome");
+
+                    Session["Nome"] = user.NOME_USER;
+                    Session["Tipo"] = user.TIPO;
+                    Session["Email"] = user.EMAIL;
+                    return RedirectToAction("../Home/DashBoardHome");
                 }
                 else
                 {
                     ModelState.Clear();
-                    ViewData["UserNotFOund"] = "Usuário não encontrado!";
+                    ModelState.AddModelError(string.Empty, "Usuário não encontrado!");
+                    //ViewData["UserNotFOund"] = "Usuário não encontrado!";
                     return View();
                 }
             }
@@ -64,7 +66,7 @@ namespace ProjectHeart.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LogUser logUser = db.LogUsers.Find(id);
+            Account logUser = db.LogUsers.Find(id);
             if (logUser == null)
             {
                 return HttpNotFound();
@@ -83,7 +85,7 @@ namespace ProjectHeart.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_USER,NOME,EMAIL,SENHA")] LogUser logUser)
+        public ActionResult Create([Bind(Include = "ID_USER,NOME,EMAIL,SENHA")] Account logUser)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +104,7 @@ namespace ProjectHeart.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LogUser logUser = db.LogUsers.Find(id);
+            Account logUser = db.LogUsers.Find(id);
             if (logUser == null)
             {
                 return HttpNotFound();
@@ -115,7 +117,7 @@ namespace ProjectHeart.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_USER,NOME,EMAIL,SENHA")] LogUser logUser)
+        public ActionResult Edit([Bind(Include = "ID_USER,NOME,EMAIL,SENHA")] Account logUser)
         {
             if (ModelState.IsValid)
             {
@@ -133,7 +135,7 @@ namespace ProjectHeart.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LogUser logUser = db.LogUsers.Find(id);
+            Account logUser = db.LogUsers.Find(id);
             if (logUser == null)
             {
                 return HttpNotFound();
@@ -146,7 +148,7 @@ namespace ProjectHeart.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            LogUser logUser = db.LogUsers.Find(id);
+            Account logUser = db.LogUsers.Find(id);
             db.LogUsers.Remove(logUser);
             db.SaveChanges();
             return RedirectToAction("Index");

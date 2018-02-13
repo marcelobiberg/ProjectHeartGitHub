@@ -1,0 +1,247 @@
+﻿@model List<ProjectHeart.Models.Account>
+
+@{
+    <!--backup: -->
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--func js diversos-->
+<script type="text/javascript">
+
+    //func para focus no input ao carregar
+    window.onload = function () {
+
+        //inicia dropdown com Email default e foca input search
+        document.getElementById('toggleSelect').value = "e";
+        $('#ps').focus();
+    }
+
+    function clearInput() {
+
+        $('#ps').val('');
+        $('#ps').focus();
+
+    }
+
+    function focusInput() {
+        $('#ps').focus();
+    }
+
+    //func's para mudar icone e text dropdown
+    function Semail() {
+        document.getElementById('toggleDw').innerText = "email";
+        document.getElementById('toggleSelect').value = "e";
+        $('#ps').attr('placeholder', 'Informe e-mail do cadastro!');
+        $('#ps').val('');
+        $('#ps').focus();
+    }
+    function Sid() {
+        document.getElementById('toggleDw').innerText = "vpn_key";
+        document.getElementById('toggleSelect').value = "i";
+        $('#ps').attr('placeholder', 'ID user!');
+        $('#ps').val('');
+        $('#ps').focus();
+    }
+
+    //logic para flag email ou senha
+    function ckSb() {
+        if (document.getElementById('toggleSelect').value != "e") {
+            document.getElementById('toggleSelect').value = "s";
+            }
+    }
+
+</script>
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> <!--backup: col-lg-12 col-md-12 col-sm-12 col-xs-12-->
+        <div class="card">
+
+            <!--header-->
+            <div class="header">
+                <h2  class="card-inside-title" style="text-align:center;font-weight:600;">
+                        BUSCAR USUÁRIOS DO SISTEMA
+                </h2>
+          
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>    
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="@Url.Action("Create","Account")">Criar novo Usuário</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="body">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="body">
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-8 col-md-push-2">
+
+                                        <!--logic para validacao-->
+                                        @if (ViewBag.valida != null)
+                                        {
+                                            if (ViewBag.valida == "s")
+                                            {
+                                                @Html.ValidationSummary(true, "", new { @class = "alert alert-success text-center font-19" })
+                                            }
+                                            else
+                                            {
+                                                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger text-center font-19" })
+                                            }
+                                        }
+
+                                    @using (Html.BeginForm("Index", "Account", FormMethod.Post, new { @class = "", id = "", @onsubmit = "ckSb()"}))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="container-fluid">
+                                            <div class="input-group input-group-lg">
+                                                <div class="input-group-btn">
+                                                    <button type="button" class="btn btn-default dropdown-toggle col-lg-pull-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="material-icons" id="toggleDw">email</i><span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a onclick="Semail()">E-mail</a></li>
+                                                        <li><a onclick="Sid()">ID user</a></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="form-line">
+                                                    <!--campo para logic dropdown -->
+                                                    @Html.Editor("ckSearch", new { htmlAttributes = new { @class = "hidden", id = "toggleSelect" } })
+                                                    
+                                                    @Html.Editor("search", null, new { htmlAttributes = new { @class = "form-control input-lg", type = "text", placeholder = "Informe e-mail do cadastro!", id = "ps", autofocus = true} })
+                                                </div>
+
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float" onclick="clearInput()" data-toggle="dropdown" data-placement="bottom" title="Duplo clique para limpar">
+                                                        <i hre class="material-icons">clear</i>
+                                                    </button>
+
+                                                    <button class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float col-sm-push-2">
+                                                        <i hre class="material-icons">send</i>
+                                                    </button>
+                                                </span>
+
+                                            </div><!--end input group-->
+                                        </div>
+                                    }
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-sm-push-0">
+                                <div class="card" style="background-color:#009688;">
+                                    <div class="body">
+                                        <div class="">
+
+                                            @*<div class="col-md-3"> teste
+                                                <p>
+                                                    <b>Basic</b>
+                                                </p>
+                                                <select class="form-control show-tick">
+                                                    <option>Mustard</option>
+                                                    <option>Ketchup</option>
+                                                    <option>Relish</option>
+                                                </select>
+                                            </div>*@
+
+                                            <button type="button" class="btn btn-success btn-circle-lg waves-effect waves-circle waves-float" onclick="location.href='@Url.Action("Create","Account")'">
+                                                <i class="material-icons">person_add</i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-warning btn-circle-lg waves-effect waves-circle waves-float" onclick="location.href='@Url.Action("Create","Account")'">
+                                                <i class="material-icons">person_add</i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-danger btn-circle-lg waves-effect waves-circle waves-float" onclick="location.href='@Url.Action("Create","Account")'">
+                                                <i class="material-icons">person_add</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+                <!--tabela com as accounts if exist-->
+                @if (Model != null)
+                {
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="card">
+                                    <div class="body table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    @*<th style="text-align:center;">#</th>*@
+                                                    <th style="text-align:left;">EMAIL</th>
+                                                </tr>
+                                            </thead>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tbody>
+
+                                                    <tr>
+                                                        @*<th style="text-align:center;">@item.ID_USER </th>*@
+                                                        <td style="text-align:left;">@item.EMAIL</td>
+                                                        <td style="text-align:left;">
+                                                            <!--remover , uso somente para testar . . .-->
+                                                            @if (Session["Tipo"] == null)
+                                                            {
+                                                                @Html.ActionLink("Editar", "Edit", new { id = item.ID_USER }, htmlAttributes: new { @class = "btn btn-lg btn-warning" })<span>&emsp;</span>
+                                                                @Html.ActionLink("Excluir", "Delete", new { id = item.ID_USER }, htmlAttributes: new { @class = "btn btn-lg btn-danger" })<span>&emsp;</span>
+
+                                                            }
+
+                                                            @*@if (Session["Tipo"].ToString().Equals("Funcionario"))
+                                                                {
+                                                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID_USER }, htmlAttributes: new { @class = "btn btn-warning" })<span>&emsp;</span>
+                                                                            @Html.ActionLink("Excluir", "Delete", new { id = item.ID_USER}, htmlAttributes: new { @class = "btn btn-danger" })<span>&emsp;</span>
+                                                                }
+                                                                else if (Session["Tipo"].ToString().Equals("Medico"))
+                                                                {
+                                                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID_USER}, htmlAttributes: new { @class = "btn btn-warning" })<span>&emsp;</span>
+                                                                            @Html.ActionLink("Excluir", "Delete", new { id = item.ID_USER }, htmlAttributes: new { @class = "btn btn-danger" })<span>&emsp;</span>
+
+                                                                }
+                                                                else if (Session["Tipo"].ToString().Equals("Administrador"))
+                                                                {
+                                                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID_USER }, htmlAttributes: new { @class = "btn btn-warning" })<span>&emsp;</span>
+                                                                            @Html.ActionLink("Excluir", "Delete", new { id = item.ID_USER }, htmlAttributes: new { @class = "btn btn-danger" })<span>&emsp;</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                            @Html.ActionLink("Editar", "Edit", new { id = item.ID_USER }, htmlAttributes: new { @class = "btn btn-warning" })<span>&emsp;</span>
+                                                                            @Html.ActionLink("Excluir", "Delete", new { id = item.ID_USER }, htmlAttributes: new { @class = "btn btn-danger" })<span>&emsp;</span>
+                                                                }*@
+                                                        </td>
+
+                                                    </tr>
+                                                </tbody>
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

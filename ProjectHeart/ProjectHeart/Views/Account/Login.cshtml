@@ -1,0 +1,106 @@
+﻿@model ProjectHeart.Models.Account
+@{
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Sign In | Medilab Plus</title>
+    <!-- Favicon-->
+    @*<link rel="icon" href="~/AssetMainPage/Admin/favicon.ico" type="image/x-icon">*@
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    @*@Styles.Render("~/MainPage/plugins/css")*@
+    <link href="~/AssetMainPage/Admin/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    @*@Styles.Render("~/Plugins/node-waves/css")*@
+    <link href="~/AssetMainPage/Admin/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    @*@Styles.Render("~/Plugins/animate-css")*@
+    <link href="~/AssetMainPage/Admin/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    @*@Styles.Render("~/Content/MainPage/css")*@
+    <link href="~/AssetMainPage/Admin/css/style.css" rel="stylesheet">
+</head>
+
+<body class="login-page">
+    <div class="login-box">
+        <div class="logo">
+            <a href="javascript:void(0);">Medilab<b>+</b></a>
+            <small>BootStrap Based - Material Design</small>
+        </div>
+        <div class="card">
+            <!--body login-->
+            <div class="body">
+
+                @using (Html.BeginForm("Index", "Account", FormMethod.Post, new { htmlAttributes = new { id = "sign_in" } }))
+            {
+                    @Html.AntiForgeryToken()
+                    <div class="msg">user:admin@admin.com <br /> senha:123</div>
+                    <!--email-->
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-line">
+                            @Html.EditorFor(model => Model.EMAIL, new { htmlAttributes = new { @type = "email", @class = "form-control", @name = "username", placeholder = "E-mail", @autofocus = true } })
+                            @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!--senha-->
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            @Html.EditorFor(model => Model.SENHA, new { htmlAttributes = new { @type = "password", @class = "form-control", @name = "password", placeholder = "Senha" } })
+                            @Html.ValidationMessageFor(model => model.SENHA, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @*<div class="col-xs-8 p-t-5">
+                                <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                                <label for="rememberme">Remember Me</label>
+                            </div>*@
+                        <div class="col-xs-12">
+                            <button class="btn btn-block bg-red waves-effect" type="submit">Entrar</button>
+                        </div>
+                    </div>
+                    <div class="row m-t-15 m-b--20">
+                        @*<div class="col-xs-6">
+                                <a href="sign-up.html">Register Now!</a>
+                            </div>*@
+                        <div class="col-xs-6 align-center">
+                            @Html.ActionLink("Esqueceu a senha?", "Forgot_Password")
+                        </div>
+                    </div>
+                }
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+        </div>
+    </div>
+    
+    <script src="~/AssetMainPage/Admin/js/pages/examples/sign-in.js"></script>
+
+    <!-- Jquery Core Js -->
+    @Scripts.Render("~/MainPage/plugins/js")
+
+    <!-- Custom Js -->
+    @Scripts.Render("~/bundles/MainPage")
+    @*@Scripts.Render("~/MainPage/sign-in")*@
+</body>
+</html>
